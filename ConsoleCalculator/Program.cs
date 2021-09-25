@@ -9,7 +9,7 @@ namespace ConsoleCalculator
         {
             PrintHeader();
 
-            var validations = new List<Func<double[], string>> {Validations.MaxTwoNumbersValidation};
+            var validations = new List<Func<double[], string>> {};
             var parser = new Parser();
             var validator = new Validator();
             var adder = new Adder();

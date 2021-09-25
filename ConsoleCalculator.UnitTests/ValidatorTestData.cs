@@ -14,7 +14,11 @@ namespace ConsoleCalculator.UnitTests
                 new object[] {new double[] {0, 0, 0}, 
                     new List<Func<double[], string>> {Validations.MaxTwoNumbersValidation},
                     new ValidateResult(new List<string>(){Errors.MoreThanTwoArgumentError})
-                    }
+                    },
+                new object[] {new double[] {0, 0, 0}, 
+                    new List<Func<double[], string>>(),
+                    new ValidateResult()
+                    },
             };
     }
 }

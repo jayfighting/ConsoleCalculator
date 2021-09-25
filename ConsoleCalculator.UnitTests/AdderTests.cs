@@ -3,10 +3,10 @@ using Xunit;
 
 namespace ConsoleCalculator.UnitTests
 {
-    public class CalculatorTests
+    public class AdderTests
     {
         [Theory]
-        [MemberData(nameof(CalculatorTestData.Data), MemberType = typeof(CalculatorTestData))]
+        [MemberData(nameof(AdderTestData.Data), MemberType = typeof(AdderTestData))]
         public void AddShouldAdd(double[] nums, double expected)
         {
             var sut = new Adder();
