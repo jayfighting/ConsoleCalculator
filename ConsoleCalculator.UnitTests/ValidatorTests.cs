@@ -14,8 +14,8 @@ namespace ConsoleCalculator.UnitTests
             List<Func<double[], string>> validations,
             ValidateResult expected)
         {
-            var sut = new Validator();
-            var actual = sut.Validate(nums, validations);
+            var sut = new Validator(validations);
+            var actual = sut.Validate(nums);
 
             using (new AssertionScope())
             {
@@ -30,8 +30,8 @@ namespace ConsoleCalculator.UnitTests
             List<Func<double[], string>> validations,
             ValidateResult expected)
         {
-            var sut = new Validator();
-            var actual = sut.Validate(nums, validations);
+            var sut = new Validator(validations);
+            var actual = sut.Validate(nums);
 
             using (new AssertionScope())
             {

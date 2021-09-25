@@ -10,8 +10,9 @@ namespace ConsoleCalculator
             PrintHeader();
 
             var validations = new List<Func<double[], string>> {Validations.NoNegativeNumberValidation};
-            var parser = new Parser();
-            var validator = new Validator();
+            const int maxVal = 1000;
+            var parser = new ParserWithMax(Config.Delimiters, maxVal);
+            var validator = new Validator(validations);
             var adder = new Adder();
             var calcService = new CalculatorService(parser, validator, adder);
 
@@ -19,7 +20,7 @@ namespace ConsoleCalculator
             Console.Write("Your Input:");
             var numStr = Console.ReadLine();
 
-            var ans = calcService.Calculate(numStr, Config.Delimiters, validations);
+            var ans = calcService.Calculate(numStr);
 
             Console.Write("Your Result:");
             Console.WriteLine(ans);
