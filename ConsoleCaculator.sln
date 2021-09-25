@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleCalculator", "ConsoleCalculator\ConsoleCalculator.csproj", "{B32927A7-A478-49A4-AB0B-E9C292E8C535}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleCalculator.UnitTests", "ConsoleCalculator.UnitTests\ConsoleCalculator.UnitTests.csproj", "{DAFCEA07-B4C2-4D65-BFB8-762B7C3DD3E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B32927A7-A478-49A4-AB0B-E9C292E8C535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B32927A7-A478-49A4-AB0B-E9C292E8C535}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B32927A7-A478-49A4-AB0B-E9C292E8C535}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B32927A7-A478-49A4-AB0B-E9C292E8C535}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAFCEA07-B4C2-4D65-BFB8-762B7C3DD3E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAFCEA07-B4C2-4D65-BFB8-762B7C3DD3E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAFCEA07-B4C2-4D65-BFB8-762B7C3DD3E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAFCEA07-B4C2-4D65-BFB8-762B7C3DD3E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
