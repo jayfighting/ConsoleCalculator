@@ -16,9 +16,9 @@ namespace ConsoleCalculator
             _command = command;
         }
 
-        public double Calculate(string input, char delimiter, List<Func<double[], string>> validations)
+        public double Calculate(string input, string[] delimiters, List<Func<double[], string>> validations)
         {
-            var nums = _parser.Parse(input, delimiter);
+            var nums = _parser.Parse(input, delimiters);
 
             var validateResult = _validator.Validate(nums, validations);
 

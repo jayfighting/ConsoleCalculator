@@ -15,7 +15,7 @@ namespace ConsoleCalculator.UnitTests
                 It.IsAny<List<Func<double[], string>>>())).Returns(new ValidateResult());
 
             var mockParser = new Mock<IParser>();
-            mockParser.Setup(x => x.Parse(It.IsAny<string>(), It.IsAny<char>()))
+            mockParser.Setup(x => x.Parse(It.IsAny<string>(), It.IsAny<string[]>()))
                 .Returns(new double[0]);
 
             var mockCommand = new Mock<ICommand>();
@@ -24,12 +24,12 @@ namespace ConsoleCalculator.UnitTests
 
             var sut = new CalculatorService(mockParser.Object, mockValidator.Object, mockCommand.Object);
 
-            sut.Calculate("", ',', new List<Func<double[], string>>());
+            sut.Calculate("", new string[0], new List<Func<double[], string>>());
 
             mockValidator.Verify(x => x.Validate(It.IsAny<double[]>(),
                 It.IsAny<List<Func<double[], string>>>()), Times.Once);
             
-            mockParser.Verify(x =>  x.Parse(It.IsAny<string>(), It.IsAny<char>()), Times.Once);
+            mockParser.Verify(x =>  x.Parse(It.IsAny<string>(), It.IsAny<string[]>()), Times.Once);
             
             mockCommand.Verify(x => x.Execute(It.IsAny<double[]>()), Times.Once());
             

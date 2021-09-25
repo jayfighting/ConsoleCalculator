@@ -10,7 +10,7 @@ namespace ConsoleCalculator.UnitTests
         public void CanParseString(string str, double[] excepted)
         {
             var sut = new Parser();
-            var actual = sut.Parse(str, ',');
+            var actual = sut.Parse(str, Config.Delimiters);
 
             actual.Should().BeEquivalentTo(excepted);
         }

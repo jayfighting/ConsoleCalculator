@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ConsoleCalculator
 {
     public class Parser : IParser
     {
-        public double[] Parse(string s, char delimiter)
+        public double[] Parse(string s, string[] delimiters)
         {
             var result = new List<double>();
             
-            var nums = s.Split(delimiter);
+            var nums = s.Split(delimiters, StringSplitOptions.None);
 
             foreach (var num in nums)
             {

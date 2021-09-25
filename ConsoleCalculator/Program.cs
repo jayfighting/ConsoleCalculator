@@ -14,13 +14,12 @@ namespace ConsoleCalculator
             var validator = new Validator();
             var adder = new Adder();
             var calcService = new CalculatorService(parser, validator, adder);
-            const char delimiter = ',';
 
             Console.WriteLine("Please enter your 2 numbers that's separated by a comma (example: 2, 3)");
             Console.Write("Your Input:");
             var numStr = Console.ReadLine();
 
-            var ans = calcService.Calculate(numStr, delimiter, validations);
+            var ans = calcService.Calculate(numStr, Config.Delimiters, validations);
 
             Console.Write("Your Result:");
             Console.WriteLine(ans);
