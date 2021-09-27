@@ -5,17 +5,11 @@ namespace ConsoleCalculator
 {
     public class Parser : IParser
     {
-        private string[] _delimiters { get; }
-        public Parser(string[] delimiters)
-        {
-            _delimiters = delimiters;
-        }
-
-        public virtual double[] Parse(string s)
+        public virtual double[] Parse(string s, string[] delimiters)
         {
             var result = new List<double>();
 
-            var nums = s.Split(_delimiters, StringSplitOptions.None);
+            var nums = s.Split(delimiters, StringSplitOptions.None);
 
             foreach (var num in nums)
             {

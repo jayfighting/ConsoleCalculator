@@ -10,22 +10,29 @@ namespace ConsoleCalculator
             PrintHeader();
 
             var validations = new List<Func<double[], string>> {Validations.NoNegativeNumberValidation};
+            var extractors = new List<DelimiterExtractorBase>(){ new SingleCharacterExtractor()};
             const int maxVal = 1000;
-            var parser = new ParserWithMax(Config.Delimiters, maxVal);
+            var delimiterExtractorService = new DelimiterExtractorService(extractors);
+            var parser = new ParserWithMax(maxVal);
             var validator = new Validator(validations);
             var adder = new Adder();
-            var calcService = new CalculatorService(parser, validator, adder);
+            Console.CancelKeyPress += (sender, eventArgs) => Environment.Exit(0);
+            var calcService = new CalculatorService(parser, validator, adder, delimiterExtractorService);
+            
+            while (true)
+            {
+                
+                Console.WriteLine("Please enter your formula (Ctrl+c) to exit..");
+                Console.Write("Your Input:");
+                var numStr = Console.ReadLine();
 
-            Console.WriteLine("Please enter your 2 numbers that's separated by a comma (example: 2, 3)");
-            Console.Write("Your Input:");
-            var numStr = Console.ReadLine();
+                var ans = calcService.Calculate(numStr);
 
-            var ans = calcService.Calculate(numStr);
-
-            Console.Write("Your Result:");
-            Console.WriteLine(ans);
-
-            Console.ReadLine();
+                Console.Write("Your Result:");
+                Console.WriteLine(ans);
+                
+                Console.WriteLine();
+            }
         }
 
         private static void PrintHeader()

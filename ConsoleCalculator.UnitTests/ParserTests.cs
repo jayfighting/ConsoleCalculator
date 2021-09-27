@@ -9,8 +9,8 @@ namespace ConsoleCalculator.UnitTests
         [MemberData(nameof(ParserTestData.Data), MemberType = typeof(ParserTestData))]
         public void CanParseString(string str, double[] excepted)
         {
-            var sut = new Parser(Config.Delimiters);
-            var actual = sut.Parse(str);
+            var sut = new Parser();
+            var actual = sut.Parse(str, Config.Delimiters);
 
             actual.Should().BeEquivalentTo(excepted);
         }
@@ -19,8 +19,8 @@ namespace ConsoleCalculator.UnitTests
         [MemberData(nameof(ParserTestData.MaxCheckData), MemberType = typeof(ParserTestData))]
         public void MaxParserCanParseString(string str, double[] excepted)
         {
-            var sut = new ParserWithMax(Config.Delimiters, 1000);
-            var actual = sut.Parse(str);
+            var sut = new ParserWithMax(1000);
+            var actual = sut.Parse(str, Config.Delimiters);
 
             actual.Should().BeEquivalentTo(excepted);
         }

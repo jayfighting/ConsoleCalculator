@@ -2,6 +2,6 @@
 {
     public interface IParser
     {
-        double[] Parse(string s);
+        double[] Parse(string s, string[] delimiters);
     }
 }
