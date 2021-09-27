@@ -5,6 +5,6 @@ namespace ConsoleCalculator
 {
     public interface ICalculatorService
     {
-        double Calculate(string input);
+        string Calculate(string input);
     }
 }

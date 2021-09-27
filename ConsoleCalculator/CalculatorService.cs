@@ -20,7 +20,7 @@ namespace ConsoleCalculator
             _extractorService = extractorService;
         }
 
-        public double Calculate(string input)
+        public string Calculate(string input)
         {
             var delimiters = _extractorService.Extract(input, out var fInput);
             var nums = _parser.Parse(fInput, delimiters);
@@ -32,7 +32,7 @@ namespace ConsoleCalculator
                 throw new ArgumentException(string.Join(Environment.NewLine, validateResult.ValidationErrors));
             } 
             
-            return _command.Execute(nums);
+            return _command.ExecuteWithFormula(nums);
         }
     }
 }

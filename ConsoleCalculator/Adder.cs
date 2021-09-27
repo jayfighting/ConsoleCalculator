@@ -11,5 +11,10 @@ namespace ConsoleCalculator
         {
             return nums.Sum();
         }
+
+        public string ExecuteWithFormula(double[] nums)
+        {
+            return string.Join('+', nums) + " = " + Execute(nums);
+        }
     }
 }
