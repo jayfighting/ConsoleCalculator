@@ -10,7 +10,11 @@ namespace ConsoleCalculator
             PrintHeader();
 
             var validations = new List<Func<double[], string>> {Validations.NoNegativeNumberValidation};
-            var extractors = new List<DelimiterExtractorBase>(){ new SingleCharacterExtractor()};
+            var extractors = new List<DelimiterExtractorBase>()
+            {
+                new SingleCharacterExtractor(),
+                new SingleWordExtractor()
+            };
             const int maxVal = 1000;
             var delimiterExtractorService = new DelimiterExtractorService(extractors);
             var parser = new ParserWithMax(maxVal);
