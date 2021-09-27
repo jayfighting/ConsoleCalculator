@@ -18,5 +18,16 @@ namespace ConsoleCalculator.UnitTests
                 new object[] {"//[***][##]\\n11***22***33", false, null, ""},
                 new object[] {"//#\\n2#5", false, null, ""},
             };
+        
+        public static IEnumerable<object[]> MultiWordsDelimiterData =>
+            new List<object[]>()
+            {
+                new object[] {"//[***]\\n11***22***33", true, new List<string>(){"***"}, "11***22***33"},
+                new object[] {"//[*][!!][r9r]\\n11r9r22*hh*33!!44", true, new List<string>(){"*", "!!", "r9r"}, 
+                    "11r9r22*hh*33!!44"},
+                new object[] {"//[***]]\\n11***22***33", false, null, ""},
+                new object[] {"//[[***]]\\n11***22***33", false, null, ""},
+                new object[] {"//[[***]\\n11***22***33", false, null, ""},
+            };
     }
 }

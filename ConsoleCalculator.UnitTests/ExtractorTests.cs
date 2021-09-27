@@ -38,5 +38,21 @@ namespace ConsoleCalculator.UnitTests
                 actualInput.Should().Be(input);
             }
         }
+
+        [Theory]
+        [MemberData(nameof(ExtractorTestData.MultiWordsDelimiterData), MemberType = typeof(ExtractorTestData))]
+        public void MultiWordsDelimiterExtractorShouldExtract(string s, bool isSuccess, List<string> delimiters,
+            string input)
+        {
+            var sut = new MultiWordsExtractor();
+            var isSuccessful = sut.TryExtract(s, out var actualDelimiter, out var actualInput);
+
+            using (new AssertionScope())
+            {
+                isSuccessful.Should().Be(isSuccess);
+                actualDelimiter.Should().BeEquivalentTo(delimiters);
+                actualInput.Should().Be(input);
+            }
+        }
     }
 }

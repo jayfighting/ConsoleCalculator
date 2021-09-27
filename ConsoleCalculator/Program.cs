@@ -13,7 +13,8 @@ namespace ConsoleCalculator
             var extractors = new List<DelimiterExtractorBase>()
             {
                 new SingleCharacterExtractor(),
-                new SingleWordExtractor()
+                new SingleWordExtractor(),
+                new MultiWordsExtractor()
             };
             const int maxVal = 1000;
             var delimiterExtractorService = new DelimiterExtractorService(extractors);
